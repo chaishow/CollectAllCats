@@ -21,12 +21,12 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Bridge="*res://addons/instant_games_bridge/bridge.gd"
 Utilies="*res://utilies.gd"
 
 [display]
 
 window/size/height=576
+window/dpi/allow_hidpi=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep_height"
 
@@ -49,6 +49,7 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 quality/filters/sharpen_intensity=1.0
+quality/driver/driver_name="GLES2"
 quality/intended_usage/framebuffer_allocation.mobile=2
 quality/reflections/texture_array_reflections.mobile=true
 quality/reflections/high_quality_ggx.mobile=true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Assets/Meshes/obj/Road.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameObjects/Player/Player.tscn" type="PackedScene" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://GameObjects/AudioStreamPlayer.gd" type="Script" id=10]
 [ext_resource path="res://UI/StartMenu.gd" type="Script" id=11]
 [ext_resource path="res://UI/CongratLabel.gd" type="Script" id=12]
-[ext_resource path="res://Assets/Textures/AdTexture.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Textures/buttons/current/f.png" type="Texture" id=14]
 [ext_resource path="res://UI/SFXBar.gd" type="Script" id=15]
 [ext_resource path="res://UI/SoundBar.gd" type="Script" id=16]
@@ -146,38 +145,15 @@ margin_right = -110.0
 margin_bottom = -80.0
 text = "Продать"
 
-[node name="SellX2Button" type="Button" parent="UI/RestartMenu"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -70.0
-margin_top = -135.0
-margin_right = 70.0
-margin_bottom = -45.0
-text = "Продать дороже x2"
-
-[node name="TextureRect" type="TextureRect" parent="UI/RestartMenu/SellX2Button"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -11.0
-margin_top = 7.0
-margin_right = 11.0
-margin_bottom = 29.0
-texture = ExtResource( 13 )
-expand = true
-
 [node name="Label" type="Label" parent="UI/RestartMenu"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -57.5
-margin_top = -181.5
-margin_right = 57.5
-margin_bottom = -128.5
+margin_left = -57.0
+margin_top = -126.0
+margin_right = 58.0
+margin_bottom = -73.0
 text = "Новый котик"
 align = 1
 
@@ -364,9 +340,7 @@ script = ExtResource( 23 )
 [connection signal="player_finished" from="." to="UI/RestartMenu" method="_on_game_player_finished"]
 [connection signal="body_entered" from="Level/Road/Finish/FinishArea" to="." method="_on_FinishArea_body_entered"]
 [connection signal="body_entered" from="Level/Road/FinishTriggerArea" to="Level/Road/Finish/Finish" method="_on_finish_trigger_area_body_entered"]
-[connection signal="ad_state_changed" from="UI/RestartMenu" to="AudioStreamPlayer" method="_on_RestartMenu_ad_state_changed"]
 [connection signal="button_up" from="UI/RestartMenu/SellButton" to="UI/RestartMenu" method="_on_sell_button_button_up"]
-[connection signal="button_up" from="UI/RestartMenu/SellX2Button" to="UI/RestartMenu" method="_on_sell_x_2_button_button_up"]
 [connection signal="button_up" from="UI/RestartMenu/CollectButton" to="." method="_on_collect_button_button_up"]
 [connection signal="button_up" from="UI/StartMenu/StartButton" to="UI/StartMenu" method="_on_start_button_button_up"]
 [connection signal="upgrade_changed" from="UI/StartMenu/CoefButton" to="UI/RestartMenu" method="_on_CoefButton_upgrade_changed"]

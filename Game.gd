@@ -32,7 +32,6 @@ func _input(event):
 
 
 func _ready():
-	Bridge.advertisement.connect("interstitial_state_changed", self, "_on_interstitial_state_changed")
 	randomize()
 	load_game()
 	preset_start_state()
@@ -81,7 +80,6 @@ func _on_FinishArea_body_entered(body):
 		player.can_move = false
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		restart_menu.show()
-		Bridge.advertisement.show_interstitial()
 
 func start_new_game():
 	player.can_move = true
@@ -199,13 +197,6 @@ func get_save():
 	}
 	
 	return save_dict
-	
 
 func to_load(save_dict):
 	set_level(save_dict["level"])
-
-func _on_interstitial_state_changed(state):
-	if state == "opened" or state == 'loading':
-		$AudioStreamPlayer.playing = false
-	if state == "closed" or state == "failed":
-		$AudioStreamPlayer.playing = true
