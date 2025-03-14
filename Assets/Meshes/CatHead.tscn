@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Materials/cats_nose.tres" type="Material" id=1]
+[ext_resource path="res://Assets/Materials/cats_head.tres" type="Material" id=2]
+
+[sub_resource type="SphereMesh" id=1]
+material = ExtResource( 2 )
+radius = 3.0
+height = 6.0
+
+[sub_resource type="CylinderMesh" id=2]
+top_radius = 1.6
+bottom_radius = 1.6
+height = 3.5
+
+[sub_resource type="CylinderMesh" id=3]
+material = ExtResource( 2 )
+top_radius = 0.01
+bottom_radius = 0.5
+
+[sub_resource type="CapsuleMesh" id=4]
+material = ExtResource( 1 )
+radius = 0.15
+mid_height = 0.3
+
+[sub_resource type="SphereMesh" id=5]
+radius = 0.5
+height = 1.0
+
+[node name="CSGCombiner" type="CSGCombiner"]
+
+[node name="CSGMesh" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.793, 0.768, 0 )
+mesh = SubResource( 1 )
+
+[node name="CSGMesh2" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.001, -0.147, 0 )
+operation = 2
+mesh = SubResource( 2 )
+
+[node name="ear" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, -1.6, 2.5, 2.5 )
+mesh = SubResource( 3 )
+
+[node name="ear2" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -1.6, 2.5, -2.5 )
+mesh = SubResource( 3 )
+
+[node name="nose" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.977, 1.889, 0 )
+mesh = SubResource( 4 )
+
+[node name="eye" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18, 2.3, 1 )
+mesh = SubResource( 5 )
+
+[node name="eye2" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18, 2.3, -1 )
+mesh = SubResource( 5 )

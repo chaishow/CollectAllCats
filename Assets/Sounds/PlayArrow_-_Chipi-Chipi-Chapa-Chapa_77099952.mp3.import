@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PlayArrow_-_Chipi-Chipi-Chapa-Chapa_77099952.mp3-ff9176a702b11781a9075f8bdc027498.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/PlayArrow_-_Chipi-Chipi-Chapa-Chapa_77099952.mp3"
+dest_files=[ "res://.import/PlayArrow_-_Chipi-Chipi-Chapa-Chapa_77099952.mp3-ff9176a702b11781a9075f8bdc027498.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

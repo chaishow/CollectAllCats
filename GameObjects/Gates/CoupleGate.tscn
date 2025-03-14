@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://GameObjects/Gates/Gate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GameObjects/Gates/CoupleGate.gd" type="Script" id=2]
+[ext_resource path="res://GameObjects/Gates/Firstgate.gd" type="Script" id=3]
+
+[node name="couple_gate" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="Gate" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="Gate2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0 )
+script = ExtResource( 3 )
+
+[connection signal="player_went_throught" from="Gate" to="." method="_on_Gate_player_went_throught"]
+[connection signal="player_went_throught" from="Gate2" to="." method="_on_Gate_player_went_throught"]

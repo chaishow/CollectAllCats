@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/Bank.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/Burlesk-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://UI/MoneyAmount.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Textures/moneypic.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=7]
+size = 40
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 10
+extra_spacing_bottom = 10
+font_data = ExtResource( 2 )
+
+[node name="Bank" type="Control" groups=["Saved"]]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 172.0
+margin_top = 39.0
+margin_right = 401.0
+margin_bottom = 91.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="View" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MoneyAmount" type="Label" parent="View"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -30.5
+margin_right = 107.0
+margin_bottom = 30.5
+custom_fonts/font = SubResource( 7 )
+text = "23141 млн"
+align = 1
+valign = 1
+script = ExtResource( 3 )
+
+[node name="MoneyPic" type="TextureRect" parent="View"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -28.5
+margin_right = 75.0
+margin_bottom = 28.5
+texture = ExtResource( 4 )
+expand = true
+
+[connection signal="money_amount_changed" from="." to="View/MoneyAmount" method="_on_bank_money_amount_changed"]

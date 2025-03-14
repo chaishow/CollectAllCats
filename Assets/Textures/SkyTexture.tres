@@ -1,0 +1,5 @@
+[gd_resource type="StreamTexture" format=2]
+
+[resource]
+flags = 4
+load_path = "res://.import/sky.png-dd284c6cd2fb9afef3ee68057b95ae58.stex"

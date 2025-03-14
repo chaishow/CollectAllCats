@@ -1,0 +1,220 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Assets/Meshes/Ring.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GameObjects/Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Textures/buttons/Sliders/ScrollBar_Blue_Base.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/buttons/Sliders/WideSlider_Blank_Frame.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/buttons/Sliders/SlimSlider_Green_Scoller.png" type="Texture" id=5]
+[ext_resource path="res://GameObjects/Player/ScoreBar.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Textures/Skins/Player.tres" type="SpriteFrames" id=7]
+[ext_resource path="res://GameObjects/Player/AnimationPlayer.gd" type="Script" id=8]
+[ext_resource path="res://GameObjects/Player/AudioStreamPlayer.gd" type="Script" id=10]
+[ext_resource path="res://Assets/Textures/Hedron_1-128x128.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Materials/pillar_material.tres" type="Material" id=12]
+[ext_resource path="res://Assets/Fonts/Burlesk-Regular.ttf" type="DynamicFontData" id=13]
+
+
+[sub_resource type="CylinderShape" id=1]
+height = 0.03
+radius = 0.4
+
+[sub_resource type="DynamicFont" id=18]
+size = 25
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 13 )
+
+[sub_resource type="Animation" id=11]
+resource_name = "ScaleDown"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.3, 0.3, 0.3 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite3D:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 17, 0, 0 ), Vector3( 17, 360, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Ring:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.25, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Ring:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 180 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "ScaleUp"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0.3, 0.3, 0.3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite3D:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 17, 360, 0 ), Vector3( 17, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Ring:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.25, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="ParticlesMaterial" id=15]
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3( 0, 1, 0 )
+spread = 35.0
+gravity = Vector3( 0, -40, 0 )
+initial_velocity = 20.0
+initial_velocity_random = 1.0
+scale = 0.1
+
+[sub_resource type="SpatialMaterial" id=16]
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_cull_mode = 2
+albedo_texture = ExtResource( 11 )
+
+[sub_resource type="QuadMesh" id=17]
+material = SubResource( 16 )
+
+[node name="Player" type="KinematicBody"]
+transform = Transform( -0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 0, 0, 0 )
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform( 0.3, -1.77636e-15, 7.10543e-15, 0, 0.286891, 0.0877114, 0, -0.0877114, 0.286891, 0, 0.2, 0.228 )
+frames = ExtResource( 7 )
+animation = "17"
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="Ring" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = ExtResource( 12 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1.42857, 0, 0, 0, 1.3849, 0.350536, 0, -0.350536, 1.3849, 6.48828e-09, 0.638219, 1.08487 )
+fov = 80.0
+
+[node name="ScoreBar" type="TextureProgress" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -100.0
+margin_top = -150.0
+margin_right = 100.0
+margin_bottom = -100.0
+rect_min_size = Vector2( 200, 50 )
+step = 0.01
+value = 30.0
+texture_under = ExtResource( 3 )
+texture_over = ExtResource( 4 )
+texture_progress = ExtResource( 5 )
+nine_patch_stretch = true
+script = ExtResource( 6 )
+
+[node name="ScoreLabel" type="Label" parent="ScoreBar"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -92.0
+margin_top = -18.0
+margin_right = 92.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 18 )
+text = "0млн"
+align = 1
+valign = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+script = ExtResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/ScaleDown = SubResource( 11 )
+anims/ScaleUp = SubResource( 14 )
+script = ExtResource( 8 )
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20862, 0 )
+emitting = false
+amount = 12
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource( 15 )
+draw_pass_1 = SubResource( 17 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1.42857, 6.85023e-08, 1.11661e-08, -6.85023e-08, 1.35462, 0.453671, 1.11661e-08, -0.453671, 1.35462, -3.0983e-07, 1.15737, 2.05192 )
+light_color = Color( 0.952941, 0.964706, 0.756863, 1 )
+light_energy = 0.5
+
+[connection signal="player_reseted" from="." to="ScoreBar" method="_on_player_player_reseted"]
+[connection signal="score_changed" from="." to="ScoreBar" method="_on_player_score_changed"]
+[connection signal="goal_changed" from="ScoreBar" to="AnimationPlayer" method="_on_score_bar_goal_changed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]

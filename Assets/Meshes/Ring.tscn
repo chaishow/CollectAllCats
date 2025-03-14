@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="CylinderMesh" id=1]
+top_radius = 0.4
+bottom_radius = 0.4
+height = 0.02
+
+[sub_resource type="CylinderMesh" id=2]
+top_radius = 0.38
+bottom_radius = 0.38
+height = 0.02
+
+[node name="Ring" type="CSGCombiner"]
+
+[node name="CSGMesh" type="CSGMesh" parent="."]
+mesh = SubResource( 1 )
+
+[node name="CSGMesh" type="CSGMesh" parent="CSGMesh"]
+operation = 2
+mesh = SubResource( 2 )
