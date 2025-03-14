@@ -1,6 +1,0 @@
-{"can_move":false,"curent_speed":1.8,"level":21,"name":"/root/Game/Player","no_negative":true,"pos_x":0.038725,"pos_y":0.111,"pos_z":0.111,"score":99803768.17,"start_level":21,"start_score":3528774.75}
-{"money_amount":66647035.74,"name":"/root/Game/UI/Bank"}
-{"name":"/root/Game/UI/StartMenu/UpgradeButton","upgrade":1573264,"upgrade_cost":38893861.67}
-{"curent_upgrade":0.33,"name":"/root/Game/UI/StartMenu/CoefButton","upgrade_cost":22225063.81}
-{"1":"6","2":"9","3":"8","name":"/root/Game/Collection"}
-{"level":38,"name":"Game"}
